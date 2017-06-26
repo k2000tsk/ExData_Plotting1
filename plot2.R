@@ -11,13 +11,13 @@ valid_power_data<-power_data[(power_data$Date=="1/2/2007")|(power_data$Date=="2/
 
 # add new column in last
 # date+time is added in the last column
-data_days$DateTime<-strptime(paste(valid_power_data[,1],valid_power_data[,2],
+valid_power_data$DateTime<-strptime(paste(valid_power_data[,1],valid_power_data[,2],
                              sep=""),format="%d/%m/%Y %H:%M:%S")
 
 # draw a graph
 png("plot2.png",width=480,height=480,units="px")
 
-plot(data_days$DateTime,data_days$Global_active_power,type="l",
+plot(valid_power_data$DateTime,valid_power_data$Global_active_power,type="l",
      xlab="",ylab="Global Active Power (kilowatts)")
 
 dev.off()
